@@ -4,7 +4,7 @@ var preferred = {
     nomen: true, //names should not be checked for initial or trailing underbars
     node: true, //Node.js globals should be predefined
     predef: [ //YUI's prefedined globals that we work against
-        "YUI", "window", "YUI_config", "YAHOO", "YAHOO_config", "Event",
+        "Y", "YUI", "window", "YUI_config", "YAHOO", "YAHOO_config", "Event",
         "opera", "exports", "document", "navigator", "console", "self", "require",
         "module", "process", "__dirname", "__filename"
     ],
