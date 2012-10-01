@@ -19,6 +19,9 @@ var filter = function (messages) {
     'use strict';
     messages = messages || [];
     return messages.filter(function (item) {
+        if (!item) {
+            return false;
+        }
         if (/is defined but never used/.test(item.reason)) {
             if (/YUI\.add/.test(item.evidence) || /'Y' is defined/.test(item.evidence)) {
                 return false;
