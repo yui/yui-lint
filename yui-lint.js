@@ -1,49 +1,36 @@
-var preferred = {
-    browser: true, //the standard browser globals should be predefined
-    maxerr: 500, //maximum number of warnings reported
-    nomen: true, //names should not be checked for initial or trailing underbars
-    node: true, //Node.js globals should be predefined
-    predef: [ //YUI's prefedined globals that we work against
-        "Y", "YUI", "window", "YUI_config", "YAHOO", "YAHOO_config", "Event",
-        "opera", "exports", "document", "navigator", "console", "self", "require",
-        "module", "process", "__dirname", "__filename"
-    ],
-    passfail: false //dont' stop on first error
-};
+var fs = require('fs');
+var path = require('path');
+var preferred = JSON.parse(fs.readFileSync(path.join(__dirname, 'jshint.json'), 'utf8'));
 
-var optional = {
-    eqeq: true, //the == and != operators should be tolerated
-    sloppy: true, //ES5 'use strict'; pragma is not required
-    plusplus: true, //++ and -- should be allowed
-    white: true //strict whitespace rules should be ignored
-};
+/*
+Potenials: (Ones we may use after investigation)
 
-var special = {
-    regexp: true, //. and [^...] should be allowed in RegExp literals
-    continue: true, //the continue statement should be allowed.
-    forin: true //unfiltered for in statements should be allowed
-};
+"regexdash": true, //suppresses warnings about unescaped - in the end of regular expressions.
 
-var mix = function (s, r) {
+*/
+
+
+/*
+The filter method will filter the JSHint messages that we do not agree with.
+These are usually things that our build system stamps but JSHint still
+reports an error on
+*/
+var filter = function (messages) {
     'use strict';
-    var i;
-    for (i in s) {
-        if (s.hasOwnProperty(i)) {
-            r[i] = s[i];
+    messages = messages || [];
+    return messages.filter(function (item) {
+        if (/is defined but never used/.test(item.reason)) {
+            if (/YUI\.add/.test(item.evidence) || /'Y' is defined/.test(item.evidence)) {
+                return false;
+            }
         }
-    }
-    return r;
+        return true;
+    });
 };
-
-var defaults = mix(optional, mix(preferred, {}));
-
-var strict = mix(preferred, {});
-delete strict.nomen;
-
 
 exports.preferred = preferred;
-exports.optional = optional;
-exports.defaults = defaults;
-exports.special = special;
-exports.strict = strict;
-exports.mix = mix;
+exports.optional = preferred;
+exports.defaults = preferred;
+exports.special = preferred;
+exports.strict = preferred;
+exports.filter = filter;

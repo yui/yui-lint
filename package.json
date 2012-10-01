@@ -1,6 +1,12 @@
 {
     "name": "yui-lint",
-    "description": "Default JSlint rules used by YUI in it's various packages",
-    "version": "0.0.1",
-    "main": "./yui-lint.js"
+    "description": "Default JSHint rules used by YUI in it's various packages",
+    "version": "0.1.0",
+    "main": "./yui-lint.js",
+    "requires": {
+        "jshint": "~0.9.0"
+    },
+    "scripts": {
+        "test": "jshint --config ./jshint.json ./*.js ./*.json"
+    }
 }
