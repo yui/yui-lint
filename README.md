@@ -37,6 +37,11 @@ in several places. In this case, we skip the `hasOwnProperty` check when iterati
 that object. In that case the developer should add the `/*jshint forin: false */` comment
 only inside the function that they are calling the offending code..
 
+Build Status
+------------
+
+[![Build Status](https://secure.travis-ci.org/yui/yui-lint.png)](http://travis-ci.org/yui/yui-lint)
+
 Config Usage
 ------------
 
