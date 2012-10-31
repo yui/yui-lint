@@ -12,7 +12,7 @@ In the past we had always tried to abide by JSLint's stricter
 ruleset, but as we and our community have grown over the years
 it's come to our attention that they are no longer benefictial
 to us and we should look for an alternative. So we decided that we
-will now use [http://jshint.com/](JSHint) as our default linting tool with one predefined
+will now use [JSHint](http://jshint.com/) as our default linting tool with one predefined
 set of options.
 
 Preferred List
