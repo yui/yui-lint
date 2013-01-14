@@ -14,5 +14,9 @@
             "type" : "BSD",
             "url" : "https://github.com/yui/yui-lint/blob/master/LICENSE"
         }
-    ]
+    ],
+    "repository": {
+        "type":"git",
+        "url":"http://github.com/yui/yui-lint.git"
+    }
 }
