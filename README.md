@@ -8,9 +8,9 @@ and our contributors to also abide by.
 Every application that YUI creates to aid in development will follow
 by all of the config options in this package.
 
-In the past we had always tried to abide by JSLint's stricter 
+In the past we had always tried to abide by JSLint's stricter
 ruleset, but as we and our community have grown over the years
-it's come to our attention that they are no longer benefictial
+it's come to our attention that they are no longer beneficial
 to us and we should look for an alternative. So we decided that we
 will now use [JSHint](http://jshint.com/) as our default linting tool with one predefined
 set of options.
@@ -29,13 +29,29 @@ Special Options
 
 **Special options should never be used file wide.**
 
-They should only be added at the method level with a comment that explains why they
-are needed.
+Options should only be overriden in special cases, should be explained with a
+comment, and should have minimal scope (i.e., at the method level or bracketed
+around the code in question).
 
-For example, we use a *whitelist* approach to filtering an `Object` for performance
-in several places. In this case, we skip the `hasOwnProperty` check when iterating
-that object. In that case the developer should add the `/*jshint forin: false */` comment
-only inside the function that they are calling the offending code..
+For example, we might use a *whitelist* approach in filtering an object where
+we skip the `hasOwnProperty` check. In this case, the developer should use
+jshint directives to temporarily disable the `forin` option around the
+offending code:
+
+```
+var obj = {
+    apple: 10,
+    orange: 11,
+    kiwi: 12
+};
+
+// Intentionally skipping the hasOwnProperty check.
+/*jshint forin: false*/
+for (prop in obj) {
+    receiver[prop] = supplier[prop];
+}
+/*jshint forin: true*/
+```
 
 Build Status
 ------------
@@ -54,7 +70,7 @@ From inside your package.json:
     {
         "devDependencies": {
             "jshint": "~0.9.0",
-            "yui-lint": "~0.1.0"
+            "yui-lint": "~0.1.1"
         },
         "scripts": {
             "pretest": "jshint --config ./node_modules/yui-lint/jshint.json ./lib/*.js"
@@ -68,13 +84,13 @@ The Rules
 
 For more information on these properties, check out the [jshint docs](http://www.jshint.com/docs/)
 
-    "browser":      true,   //the standard browser globals should be predefined
-    "node":         true,   //Node.js globals should be predefined
-    "yui":          true,   //YUI Globals 
+    "browser":      true,   // true if the standard browser globals should be predefined
+    "node":         true,   // true if Node.js globals should be predefined
+    "yui":          true,   // true if YUI globals should be predefined
     "bitwise":      true,   // true if bitwise operators should not be allowed
     "curly":        true,   // true if curly braces should be required around blocks in loops and conditionals
     "eqeqeq":       true,   // true if === should be required (for ALL equality comparisons)
-    "forin":        false,  // true if unfiltered 'for in' statements should be forbidden
+    "forin":        true,   // true if unfiltered 'for in' statements should be forbidden
     "immed":        true,   // true if immediate function invocations must be wrapped in parens
     "newcap":       true,   // true if Initial Caps must be used with constructor functions
     "noarg":        true,   // true if arguments.caller and arguments.callee should be forbidden

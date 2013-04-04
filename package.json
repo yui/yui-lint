@@ -1,6 +1,6 @@
 {
     "name": "yui-lint",
-    "description": "Default JSHint rules used by YUI in it's various packages",
+    "description": "Default JSHint rules used by YUI in its various packages",
     "version": "0.1.1",
     "main": "./yui-lint.js",
     "dependencies": {
