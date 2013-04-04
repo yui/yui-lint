@@ -5,7 +5,7 @@
     "bitwise":      true,
     "curly":        true,
     "eqeqeq":       true,
-    "forin":        false,
+    "forin":        true,
     "immed":        true,
     "newcap":       true,
     "noarg":        true,
