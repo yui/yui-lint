@@ -69,7 +69,7 @@ From inside your package.json:
 
     {
         "devDependencies": {
-            "jshint": "~0.9.0",
+            "jshint": "~2.1.0",
             "yui-lint": "~0.1.1"
         },
         "scripts": {
