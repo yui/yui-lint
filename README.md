@@ -101,6 +101,7 @@ For more information on these properties, check out the [jshint docs](http://www
     "regexp":       false,  // true if . and [^...] should not be allowed in RegExp literals
     "strict":       false,  // true if the ES5 "use strict"; pragma is required
     "trailing":     true,   // true if trailing whitespace should be forbidden
+    "undef":        true,   // true to warn on the use of explicitly undeclared variables
     "unused":       true,   // true to warn on variables that are defined but never used
     "white":        false,  // true if strict whitespace rules apply (see also 'indent' option)
     "asi":          false,  // true to suppress warnings about missing semicolons

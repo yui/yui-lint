@@ -16,6 +16,7 @@
     "regexp":       false,
     "strict":       false,
     "trailing":     true,
+    "undef":        true,
     "unused":       true,
     "white":        false,
     "asi":          false,
