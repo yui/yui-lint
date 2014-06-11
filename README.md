@@ -69,8 +69,8 @@ From inside your package.json:
 
     {
         "devDependencies": {
-            "jshint": "~0.9.0",
-            "yui-lint": "~0.1.1"
+            "jshint": "^2.5.1",
+            "yui-lint": "~0.2.0"
         },
         "scripts": {
             "pretest": "jshint --config ./node_modules/yui-lint/jshint.json ./lib/*.js"
