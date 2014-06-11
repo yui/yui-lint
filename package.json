@@ -17,6 +17,6 @@
     "url": "http://github.com/yui/yui-lint.git"
   },
   "devDependencies": {
-    "jshint": "^2.5.1"
+    "jshint": "2.x"
   }
 }
