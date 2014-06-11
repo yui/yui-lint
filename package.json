@@ -1,22 +1,22 @@
 {
-    "name": "yui-lint",
-    "description": "Default JSHint rules used by YUI in its various packages",
-    "version": "0.1.4",
-    "main": "./yui-lint.js",
-    "dependencies": {
-        "jshint": "~1.1.0"
-    },
-    "scripts": {
-        "test": "jshint --config ./jshint.json ./*.js ./*.json"
-    },
-    "licenses":[
-        {
-            "type" : "BSD",
-            "url" : "https://github.com/yui/yui-lint/blob/master/LICENSE"
-        }
-    ],
-    "repository": {
-        "type":"git",
-        "url":"http://github.com/yui/yui-lint.git"
+  "name": "yui-lint",
+  "description": "Default JSHint rules used by YUI in its various packages",
+  "version": "0.1.4",
+  "main": "./yui-lint.js",
+  "scripts": {
+    "test": "jshint --config ./jshint.json ./*.js ./*.json"
+  },
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "https://github.com/yui/yui-lint/blob/master/LICENSE"
     }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/yui/yui-lint.git"
+  },
+  "devDependencies": {
+    "jshint": "2.x"
+  }
 }
